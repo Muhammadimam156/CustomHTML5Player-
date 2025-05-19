@@ -1,0 +1,142 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url(background/japan-background-digital-art.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .video-container {
+            width: 800px;
+            max-width: 90%;
+            position: relative;
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .video {
+            width: 100%;
+            display: block;
+        }
+        
+        .controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .video-container:hover .controls {
+            transform: translateY(0);
+        }
+        
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin-bottom: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: #ff5500;
+            border-radius: 4px;
+            width: 0%;
+            position: relative;
+        }
+        
+        .progress::after {
+            content: '';
+            position: absolute;
+            right: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background-color: #ff5500;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        
+        .progress-container:hover .progress::after {
+            opacity: 1;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .left-controls, .right-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .volume-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .volume-slider {
+            width: 80px;
+            margin-left: 5px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        
+        .volume-container:hover .volume-slider {
+            opacity: 1;
+        }
+        
+        .time {
+            color: white;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        
+        .fullscreen {
+            margin-left: auto;
+        }
+        
+        .play-btn::before {
+            content: '▶';
+        }
+        
+        .video-container.playing .play-btn::before {
+            content: '⏸';
+        }
+    
